@@ -74,6 +74,7 @@ def send_mail(email, title, contents):
         yag = yagmail.SMTP(user=email_user, password=email_pwd, host=email_host)
         # 发送邮件
         yag.send(email, title, contents)
+        print(email_user, "发送邮件成功")
     except:
         print("发送邮件失败")
 
