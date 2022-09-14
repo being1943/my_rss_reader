@@ -68,16 +68,15 @@ def get_rss_info(feed_url, index, rss_info_list):
 
 def send_mail(email, title, contents):
     try:
-        email_user = os.environ["email_user"]
-        email_pwd = os.environ["email_pwd"]
-        email_host = os.environ["email_host"]
+        email_user = os.environ["EMAIL_USER"]
+        email_pwd = os.environ["EMAIL_PWD"]
+        email_host = os.environ["EMAIL_HOST"]
         yag = yagmail.SMTP(user=email_user, password=email_pwd, host=email_host)
         # 发送邮件
         yag.send(email, title, contents)
-        print(email_user)
         print(email_user, "发送邮件成功")
-    except:
-        print("发送邮件失败")
+    except Exception as e:
+        print("发送邮件失败", str(e))
 
     # 连接邮箱服务器
     # yag = yagmail.SMTP(user=user, password=password, host=host)
