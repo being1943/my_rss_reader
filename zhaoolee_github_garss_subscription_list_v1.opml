@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+<head>
+<title>嘎!RSS</title>
+</head>
+<body>
+      <outline text="不死鸟" title="不死鸟" type="rss"  
+            xmlUrl="https://iao.su/feed" htmlUrl="https://iao.su/feed"/>
+      <outline text="精品MAC应用分享" title="精品MAC应用分享" type="rss"  
+            xmlUrl="https://xclient.info/feed" htmlUrl="https://xclient.info/feed"/>
+      <outline text="老殁" title="老殁" type="rss"  
+            xmlUrl="https://www.mpyit.com/feed" htmlUrl="https://www.mpyit.com/feed"/>
+
+</body>
+</opml>

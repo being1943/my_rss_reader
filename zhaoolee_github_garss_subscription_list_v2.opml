@@ -1,0 +1,21 @@
+<opml version="2.0">
+<head>
+<title>嘎!RSS</title>
+<dateCreated>Sat, 04 Dec 2021 04:18:35 GMT</dateCreated>
+<dateModified>Wed, 14 Sep 2022 06:36:55 GMT</dateModified>
+<ownerName>zhaoolee</ownerName>
+<ownerEmail>zhaoolee@gmail.com</ownerEmail>
+<expansionState/>
+<vertScrollState>1</vertScrollState>
+<windowTop>61</windowTop>
+<windowLeft>304</windowLeft>
+<windowBottom>562</windowBottom>
+<windowRight>842</windowRight>
+</head>
+<body>
+<outline  text="不死鸟" description="不死鸟:专注分享优质资源" htmlUrl="https://iao.su/feed" language="unknown" title="不死鸟" type="rss" version="RSS2" xmlUrl="https://iao.su/feed"/>
+<outline  text="精品MAC应用分享" description="精品MAC应用分享，每天分享大量mac软件，为您提供优质的mac软件,免费软件下载服务" htmlUrl="https://xclient.info/feed" language="unknown" title="精品MAC应用分享" type="rss" version="RSS2" xmlUrl="https://xclient.info/feed"/>
+<outline  text="老殁" description="免费推荐优秀软件" htmlUrl="https://www.mpyit.com/feed" language="unknown" title="老殁" type="rss" version="RSS2" xmlUrl="https://www.mpyit.com/feed"/>
+
+</body>
+</opml>
