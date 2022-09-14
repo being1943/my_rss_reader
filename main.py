@@ -67,17 +67,13 @@ def get_rss_info(feed_url, index, rss_info_list):
 
 
 def send_mail(email, title, contents):
-    # 判断secret.json是否存在
     try:
-        with open(os.path.join(os.getcwd(), "secret.json"), 'r', encoding='utf-8') as load_f:
-            load_dict = json.load(load_f)
-            user = load_dict["user"]
-            password = load_dict["password"]
-            host = load_dict["host"]
-            # print(load_dict)
-            yag = yagmail.SMTP(user=user, password=password, host=host)
-            # 发送邮件
-            yag.send(email, title, contents)
+        email_user = os.environ["email_user"]
+        email_pwd = os.environ["email_pwd"]
+        email_host = os.environ["email_host"]
+        yag = yagmail.SMTP(user=email_user, password=email_pwd, host=email_host)
+        # 发送邮件
+        yag.send(email, title, contents)
     except:
         print("发送邮件失败")
 
@@ -191,10 +187,11 @@ def extract_today_rss(today_news, rss_acticle_list):
             new_index = len(today_news) + 1
             today_news.append(
                 f"<div style='line-height:3;{'background-color:#FAF6EA;' if new_index % 2 == 0 else ''}'>"
-                f"<a href='{rss_acticle['link']}' style='line-height:2;text-decoration:none;display:block;color:#584D49;' target='_blank'>🌈 {new_index}. {rss_acticle['title']}</a></div>")
+                f"<a href='{rss_acticle['link']}' style='line-height:2;text-decoration:none;display:block;color"
+                f":#584D49;' target='_blank'>🌈 {new_index}. {rss_acticle['title']}</a></div>")
 
+        # 将README.md复制到docs中
 
-# 将README.md复制到docs中
 
 def cp_readme_md_to_docs():
     shutil.copyfile(os.path.join(os.getcwd(), "README.md"), os.path.join(os.getcwd(), "docs", "README.md"))
@@ -278,33 +275,31 @@ def create_opml():
 
             result_v1 = result_v1 + opml_info_text_v1 + "\n"
 
-    zhaoolee_github_garss_subscription_list = "";
     with open(os.path.join(os.getcwd(), "rss-template-v2.txt"), 'r', encoding='utf-8') as load_f:
-        zhaoolee_github_garss_subscription_list_template = load_f.read();
+        rss_template = load_f.read();
         GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
         date_created = datetime.utcnow().strftime(GMT_FORMAT);
         date_modified = datetime.utcnow().strftime(GMT_FORMAT);
-        zhaoolee_github_garss_subscription_list = zhaoolee_github_garss_subscription_list_template.format(result=result,
-                                                                                                          date_created=date_created,
-                                                                                                          date_modified=date_modified);
-        # print(zhaoolee_github_garss_subscription_list);
+        rss_subscription_list_v2 = rss_template.format(result=result,
+                                                       date_created=date_created,
+                                                       date_modified=date_modified);
+        # print(rss_subscription_list_v2);
 
     # 将内容写入
-    with open(os.path.join(os.getcwd(), "zhaoolee_github_garss_subscription_list_v2.opml"), 'w',
+    with open(os.path.join(os.getcwd(), "rss_subscription_list_v2.opml"), 'w',
               encoding='utf-8') as load_f:
-        load_f.write(zhaoolee_github_garss_subscription_list)
+        load_f.write(rss_subscription_list_v2)
 
-    zhaoolee_github_garss_subscription_list_v1 = ""
     with open(os.path.join(os.getcwd(), "rss-template-v1.txt"), 'r', encoding='utf-8') as load_f:
-        zhaoolee_github_garss_subscription_list_template = load_f.read();
-        zhaoolee_github_garss_subscription_list_v1 = zhaoolee_github_garss_subscription_list_template.format(
+        rss_template = load_f.read();
+        rss_subscription_list_v1 = rss_template.format(
             result=result_v1);
-        # print(zhaoolee_github_garss_subscription_list_v1);
+        # print(rss_subscription_list_v1);
 
     # 将内容写入
-    with open(os.path.join(os.getcwd(), "zhaoolee_github_garss_subscription_list_v1.opml"), 'w',
+    with open(os.path.join(os.getcwd(), "rss_subscription_list_v1.opml"), 'w',
               encoding='utf-8') as load_f:
-        load_f.write(zhaoolee_github_garss_subscription_list_v1)
+        load_f.write(rss_subscription_list_v1)
 
     # print(result)
 

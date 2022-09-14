@@ -1,18 +1,18 @@
 name: 推送更新
 on:
   schedule:
-    - cron:  '0 22 * * *'    # 国际标准时间22点（北京时间早上6点发） 
+    - cron: '0 22 * * *'    # 国际标准时间22点（北京时间早上6点发）
   push:
-    branches:    
+    branches:
       - main
 jobs:
   push:
-      runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          # in this example, there is a newer version already installed, 3.7.7, so the older version will be downloaded
-          python-version: ['3.7.4']
-      steps:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # in this example, there is a newer version already installed, 3.7.7, so the older version will be downloaded
+        python-version: [ '3.7.4' ]
+    steps:
       - uses: actions/checkout@v2 # Checking out the repo
       - name: Install dependecies
         uses: VaultVulp/action-pipenv@v2.0.1
@@ -20,17 +20,17 @@ jobs:
           command: install -d # Install all dependencies, including development ones
       - name: Build
         env:
-            USER: ${{ secrets.USER }}
-            PASSWORD: ${{ secrets.PASSWORD }}
-            HOST: ${{ secrets.HOST }}
+          email_user: ${{ secrets.email_user }}
+          email_pwd: ${{ secrets.email_pwd }}
+          email_host: ${{ secrets.email_host }}
         uses: VaultVulp/action-pipenv@v2.0.1
         with:
           command: run build
       - name: Commit and push if changed   # 更新README.md
         run: |
           git diff
-          git config --global user.email "zhaoolee@gmail.com"
-          git config --global user.name "zhaoolee"
+          git config --global user.email "being1943@gmail.com"
+          git config --global user.name "being1943"
           git add README.md
           git add docs
           git commit -m "Github Action auto Updated"
