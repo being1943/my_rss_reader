@@ -1,4 +1,4 @@
-# My Ass Reader 已收集{{rss_num}}个RSS源, 生成时间: {{ga_rss_datetime}}
+# My Rss Reader,一个Rss日更工具，已收集{{rss_num}}个RSS源, 生成时间: {{ga_rss_datetime}}
 
 ## 主要功能
 
