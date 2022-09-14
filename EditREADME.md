@@ -9,6 +9,8 @@
 
 <h2>今日更新文章：{{new_num}}篇（更新时间：{{ga_rss_datetime}} & RSS：{{rss_num}}个）</h2>
 {{news}}
+
+
 <邮件内容区结束
 
 ## 已收集RSS列表
