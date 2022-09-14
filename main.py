@@ -1,6 +1,5 @@
 import json
 import os
-import pprint
 import re
 import shutil
 import time
@@ -54,7 +53,6 @@ def get_rss_info(feed_url, index, rss_info_list):
 
     rss_info_list[index] = result["result"]
     print("本次爬取==》》", feed_url, "<<<===", index, result["result"])
-    pprint.pp(result)
     # 剩余数量
     remaining_amount = 0
 
@@ -118,7 +116,6 @@ def replace_readme():
 
         # 主进程等待所有子进程结束
         po.join()
-        pprint.pprint(list(rss_info_list))
 
         for index, before_info in enumerate(before_info_list):
             # 获取link
@@ -134,7 +131,7 @@ def replace_readme():
             except:
                 print("An exception occurred")
             latest_content = ''
-            for rss_acticle in rss_acticle_list[:5]:
+            for rss_acticle in rss_acticle_list[:2]:
                 latest_content = latest_content + " ‣ " + f'<a href="{rss_acticle["link"]}" target="_blank">{rss_acticle["title"]}</a><br/>'
 
             if not latest_content:
