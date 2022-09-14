@@ -4,12 +4,22 @@
 <title>嘎!RSS</title>
 </head>
 <body>
-      <outline text="不死鸟" title="不死鸟" type="rss"  
-            xmlUrl="https://iao.su/feed" htmlUrl="https://iao.su/feed"/>
-      <outline text="精品MAC应用分享" title="精品MAC应用分享" type="rss"  
-            xmlUrl="https://xclient.info/feed" htmlUrl="https://xclient.info/feed"/>
-      <outline text="老殁" title="老殁" type="rss"  
-            xmlUrl="https://www.mpyit.com/feed" htmlUrl="https://www.mpyit.com/feed"/>
+<outline text="不死鸟" title="不死鸟" type="rss"  
+            xmlUrl="https://iao.su/feed" htmlUrl="https://iao.su/feed"/> 
+<outline text="精品MAC应用分享" title="精品MAC应用分享" type="rss"  
+            xmlUrl="https://xclient.info/feed" htmlUrl="https://xclient.info/feed"/> 
+<outline text="老殁" title="老殁" type="rss"  
+            xmlUrl="https://www.mpyit.com/feed" htmlUrl="https://www.mpyit.com/feed"/> 
+<outline text="鹏少资源网" title="鹏少资源网" type="rss"  
+            xmlUrl="https://www.jokerps.com/feed" htmlUrl="https://www.jokerps.com/feed"/> 
+<outline text="小众软件" title="小众软件" type="rss"  
+            xmlUrl="https://www.appinn.com/feed/" htmlUrl="https://www.appinn.com/feed/"/> 
+<outline text="懒得勤快的博客" title="懒得勤快的博客" type="rss"  
+            xmlUrl="https://masuit.com/rss" htmlUrl="https://masuit.com/rss"/> 
+<outline text="反斗限免" title="反斗限免" type="rss"  
+            xmlUrl="https://free.apprcn.com/feed/" htmlUrl="https://free.apprcn.com/feed/"/> 
+<outline text="异次元软件世界" title="异次元软件世界" type="rss"  
+            xmlUrl="https://rsshub.v2fy.com/iplay/home" htmlUrl="https://rsshub.v2fy.com/iplay/home"/> 
 
 </body>
 </opml>

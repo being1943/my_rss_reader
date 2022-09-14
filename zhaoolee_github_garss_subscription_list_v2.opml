@@ -2,7 +2,7 @@
 <head>
 <title>嘎!RSS</title>
 <dateCreated>Sat, 04 Dec 2021 04:18:35 GMT</dateCreated>
-<dateModified>Wed, 14 Sep 2022 06:59:05 GMT</dateModified>
+<dateModified>Wed, 14 Sep 2022 10:39:04 GMT</dateModified>
 <ownerName>zhaoolee</ownerName>
 <ownerEmail>zhaoolee@gmail.com</ownerEmail>
 <expansionState/>
@@ -13,9 +13,14 @@
 <windowRight>842</windowRight>
 </head>
 <body>
-<outline  text="不死鸟" description="不死鸟:专注分享优质资源" htmlUrl="https://iao.su/feed" language="unknown" title="不死鸟" type="rss" version="RSS2" xmlUrl="https://iao.su/feed"/>
-<outline  text="精品MAC应用分享" description="精品MAC应用分享，每天分享大量mac软件，为您提供优质的mac软件,免费软件下载服务" htmlUrl="https://xclient.info/feed" language="unknown" title="精品MAC应用分享" type="rss" version="RSS2" xmlUrl="https://xclient.info/feed"/>
-<outline  text="老殁" description="免费推荐优秀软件" htmlUrl="https://www.mpyit.com/feed" language="unknown" title="老殁" type="rss" version="RSS2" xmlUrl="https://www.mpyit.com/feed"/>
+<outline  text="不死鸟" description="不死鸟:专注分享优质资源" htmlUrl="https://iao.su/feed" language="unknown" title="不死鸟" type="rss" version="RSS2" xmlUrl="https://iao.su/feed"/> 
+<outline  text="精品MAC应用分享" description="精品MAC应用分享，每天分享大量mac软件，为您提供优质的mac软件,免费软件下载服务" htmlUrl="https://xclient.info/feed" language="unknown" title="精品MAC应用分享" type="rss" version="RSS2" xmlUrl="https://xclient.info/feed"/> 
+<outline  text="老殁" description="免费推荐优秀软件" htmlUrl="https://www.mpyit.com/feed" language="unknown" title="老殁" type="rss" version="RSS2" xmlUrl="https://www.mpyit.com/feed"/> 
+<outline  text="鹏少资源网" description="专注于精品软件收录分享" htmlUrl="https://www.jokerps.com/feed" language="unknown" title="鹏少资源网" type="rss" version="RSS2" xmlUrl="https://www.jokerps.com/feed"/> 
+<outline  text="小众软件" description="分享免费、小巧、实用、有趣、绿色的软件" htmlUrl="https://www.appinn.com/feed/" language="unknown" title="小众软件" type="rss" version="RSS2" xmlUrl="https://www.appinn.com/feed/"/> 
+<outline  text="懒得勤快的博客" description="懒得勤快，互联网分享精神，勤于发现，乐于分享" htmlUrl="https://masuit.com/rss" language="unknown" title="懒得勤快的博客" type="rss" version="RSS2" xmlUrl="https://masuit.com/rss"/> 
+<outline  text="反斗限免" description="反斗软件旗下软件限免资讯网站" htmlUrl="https://free.apprcn.com/feed/" language="unknown" title="反斗限免" type="rss" version="RSS2" xmlUrl="https://free.apprcn.com/feed/"/> 
+<outline  text="异次元软件世界" description="极具人气和特色的软件网站！专注于推荐优秀软件、APP应用和互联网资源，每篇图文评测都极其用心，并提供大量软件资源下载。" htmlUrl="https://rsshub.v2fy.com/iplay/home" language="unknown" title="异次元软件世界" type="rss" version="RSS2" xmlUrl="https://rsshub.v2fy.com/iplay/home"/> 
 
 </body>
 </opml>

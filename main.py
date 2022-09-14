@@ -12,6 +12,8 @@ import pytz
 import requests
 import yagmail
 
+pool_size = 20
+
 
 def get_rss_info(feed_url, index, rss_info_list):
     result = {"result": []}
@@ -104,7 +106,7 @@ def replace_readme():
         print('初始化完毕==》', rss_info_list)
 
         # 创建一个最多开启8进程的进程池
-        po = Pool(8)
+        po = Pool(pool_size)
 
         for index, before_info in enumerate(before_info_list):
             # 获取link
@@ -117,6 +119,7 @@ def replace_readme():
         # 主进程等待所有子进程结束
         po.join()
 
+        today_news = list()
         for index, before_info in enumerate(before_info_list):
             # 获取link
             link = re.findall(r'\[订阅地址\]\((.*)\)', before_info)[0]
@@ -127,7 +130,7 @@ def replace_readme():
 
             # 加入到索引
             try:
-                new_num, today_news_list = extract_today_rss(rss_acticle_list)
+                extract_today_rss(today_news, rss_acticle_list)
             except:
                 print("An exception occurred")
             latest_content = ''
@@ -167,9 +170,9 @@ def replace_readme():
             new_edit_readme_md = new_edit_readme_md.replace(before_info, after_info)
 
     # 替换EditREADME中的索引
-    new_edit_readme_md = new_edit_readme_md.replace("{{news}}", ''.join(today_news_list))
+    new_edit_readme_md = new_edit_readme_md.replace("{{news}}", ''.join(today_news))
     # 替换EditREADME中的新文章数量索引
-    new_edit_readme_md = new_edit_readme_md.replace("{{new_num}}", str(new_num))
+    new_edit_readme_md = new_edit_readme_md.replace("{{new_num}}", str(len(today_news)))
     # 添加CDN
     new_edit_readme_md = new_edit_readme_md.replace("./_media",
                                                     "https://cdn.jsdelivr.net/gh/zhaoolee/garss/_media")
@@ -180,17 +183,15 @@ def replace_readme():
     return new_edit_readme_md
 
 
-def extract_today_rss(rss_acticle_list):
-    new_num = 0
-    today_news_list = list()
+def extract_today_rss(today_news, rss_acticle_list):
     """获取今日Rss信息放到新闻"""
     for rss_acticle in rss_acticle_list:
         if rss_acticle["date"] == datetime.today().strftime("%Y-%m-%d"):
-            new_num = new_num + 1
-            today_news_list.append(
-                f"<div style='line-height:3;{'background-color:#FAF6EA;' if new_num % 2 == 0 else ''}'>"
-                f"<a href='{rss_acticle['link']}' style='line-height:2;text-decoration:none;display:block;color:#584D49;' target='_blank'>🌈 {new_num}. {rss_acticle['title']}</a></div>")
-    return new_num, today_news_list
+            print("********************", rss_acticle)
+            new_index = len(today_news) + 1
+            today_news.append(
+                f"<div style='line-height:3;{'background-color:#FAF6EA;' if new_index % 2 == 0 else ''}'>"
+                f"<a href='{rss_acticle['link']}' style='line-height:2;text-decoration:none;display:block;color:#584D49;' target='_blank'>🌈 {new_index}. {rss_acticle['title']}</a></div>")
 
 
 # 将README.md复制到docs中
@@ -245,18 +246,19 @@ def create_opml():
             print(opml_info_text_format_data[3].strip())
             print(opml_info_text_format_data[5].strip())
 
-            opml_info = {}
-            opml_info["text"] = opml_info_text_format_data[2].strip()
-            opml_info["description"] = opml_info_text_format_data[3].strip()
-            opml_info["htmlUrl"] = opml_info_text_format_data[5].strip()
-            opml_info["title"] = opml_info_text_format_data[2].strip()
-            opml_info["xmlUrl"] = opml_info_text_format_data[5].strip()
+            opml_info = {"text": opml_info_text_format_data[2].strip(),
+                         "description": opml_info_text_format_data[3].strip(),
+                         "htmlUrl": opml_info_text_format_data[5].strip(),
+                         "title": opml_info_text_format_data[2].strip(),
+                         "xmlUrl": opml_info_text_format_data[5].strip()}
 
             # print('opml_info==>>', opml_info);
 
-            opml_info_text = '<outline  text="{text}" description="{description}" htmlUrl="{htmlUrl}" language="unknown" title="{title}" type="rss" version="RSS2" xmlUrl="{xmlUrl}"/>'
+            opml_info_text = '<outline  text="{text}" description="{description}" htmlUrl="{htmlUrl}" ' \
+                             'language="unknown" title="{title}" type="rss" version="RSS2" xmlUrl="{xmlUrl}"/> '
 
-            opml_info_text_v1 = '      <outline text="{title}" title="{title}" type="rss"  \n            xmlUrl="{xmlUrl}" htmlUrl="{htmlUrl}"/>'
+            opml_info_text_v1 = '<outline text="{title}" title="{title}" type="rss"  \n            xmlUrl="{xmlUrl}" ' \
+                                'htmlUrl="{htmlUrl}"/> '
 
             opml_info_text = opml_info_text.format(
                 text=opml_info["text"],
