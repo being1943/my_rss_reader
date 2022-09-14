@@ -20,9 +20,9 @@ jobs:
           command: install -d # Install all dependencies, including development ones
       - name: Build
         env:
-          email_user: ${{ secrets.email_user }}
-          email_pwd: ${{ secrets.email_pwd }}
-          email_host: ${{ secrets.email_host }}
+          email_user: ${{ secrets.EMAIL_USER }}
+          email_pwd: ${{ secrets.EMAIL_PWD }}
+          email_host: ${{ secrets.EMAIL_HOST }}
         uses: VaultVulp/action-pipenv@v2.0.1
         with:
           command: run build
