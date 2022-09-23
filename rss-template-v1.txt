@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <opml version="1.0">
 <head>
-<title>RSS</title>
+<title>My_Rss_Reader</title>
 </head>
 <body>
 {result}

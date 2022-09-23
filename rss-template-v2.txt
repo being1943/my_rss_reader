@@ -1,10 +1,10 @@
 <opml version="2.0">
 <head>
-<title>嘎!RSS</title>
+<title>My_Rss_Reader</title>
 <dateCreated>Sat, 04 Dec 2021 04:18:35 GMT</dateCreated>
 <dateModified>{date_modified}</dateModified>
-<ownerName>zhaoolee</ownerName>
-<ownerEmail>zhaoolee@gmail.com</ownerEmail>
+<ownerName>being1943</ownerName>
+<ownerEmail>being1943@gmail.com</ownerEmail>
 <expansionState/>
 <vertScrollState>1</vertScrollState>
 <windowTop>61</windowTop>

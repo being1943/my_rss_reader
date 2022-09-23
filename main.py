@@ -33,10 +33,10 @@ def get_rss_info(feed_url, index, rss_info_list):
                 feed_entries = feed["entries"]
                 feed_entries_length = len(feed_entries)
                 print("==feed_url=>>", feed_url, "==len=>>", feed_entries_length)
-                for entrie in feed_entries[0: feed_entries_length - 1]:
-                    title = entrie["title"]
-                    link = entrie["link"]
-                    date = time.strftime("%Y-%m-%d", entrie["published_parsed"])
+                for entry in feed_entries:
+                    title = entry["title"]
+                    link = entry["link"]
+                    date = time.strftime("%Y-%m-%d", entry["published_parsed"])
 
                     title = title.replace("\n", "")
                     title = title.replace("\r", "")
@@ -52,12 +52,10 @@ def get_rss_info(feed_url, index, rss_info_list):
                 pass
         else:
             pass
-
     rss_info_list[index] = result["result"]
-    print("本次爬取==》》", feed_url, "<<<===", index, result["result"])
+    print("本次爬取==》》", feed_url, "result==》》", list(map(lambda x: x["title"], result["result"])))
     # 剩余数量
     remaining_amount = 0
-
     for tmp_rss_info_atom in rss_info_list:
         if isinstance(tmp_rss_info_atom, int):
             remaining_amount = remaining_amount + 1
