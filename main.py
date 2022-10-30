@@ -129,11 +129,14 @@ def replace_readme():
             except:
                 print("An exception occurred")
             latest_content = ''
-            for rss_acticle in rss_acticle_list[:2]:
-                latest_content = latest_content + " ‣ " + f'<a href="{rss_acticle["link"]}" target="_blank">{rss_acticle["title"]}</a><br/>'
-
-            if not latest_content:
+            if len(rss_acticle_list) > 0:
+                latest_content = latest_content + f"<details><summary>{len(rss_acticle_list)}条</summary>"
+                for i, rss_acticle in enumerate(rss_acticle_list):
+                    latest_content = latest_content + f'{str(index + 1)}. <a href="{rss_acticle["link"]}" target="_blank">{rss_acticle["title"]}</a><br/>'
+                latest_content = latest_content + "</details>"
+            else:
                 latest_content = "[暂无法通过爬虫获取信息, 点击进入源网站主页](" + scheme_netloc_url + ")"
+
             # if len(rss_acticle_list) > 0:
             #     rss_acticle_list[0]["title"] = rss_acticle_list[0]["title"].replace("|", "\|")
             #     rss_acticle_list[0]["title"] = rss_acticle_list[0]["title"].replace("[", "\[")
