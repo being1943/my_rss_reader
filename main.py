@@ -131,35 +131,11 @@ def replace_readme():
             latest_content = ''
             if len(rss_acticle_list) > 0:
                 latest_content = latest_content + f"<details><summary>{len(rss_acticle_list)}条</summary>"
-                for i, rss_acticle in enumerate(rss_acticle_list):
-                    latest_content = latest_content + f'{str(index + 1)}. <a href="{rss_acticle["link"]}" target="_blank">{rss_acticle["title"]}</a><br/>'
+                for i, rss_acticle in enumerate(rss_acticle_list[:10]):
+                    latest_content = latest_content + f'{str(i + 1)}. <a href="{rss_acticle["link"]}" target="_blank">{rss_acticle["title"]}</a><br/>'
                 latest_content = latest_content + "</details>"
             else:
                 latest_content = "[暂无法通过爬虫获取信息, 点击进入源网站主页](" + scheme_netloc_url + ")"
-
-            # if len(rss_acticle_list) > 0:
-            #     rss_acticle_list[0]["title"] = rss_acticle_list[0]["title"].replace("|", "\|")
-            #     rss_acticle_list[0]["title"] = rss_acticle_list[0]["title"].replace("[", "\[")
-            #     rss_acticle_list[0]["title"] = rss_acticle_list[0]["title"].replace("]", "\]")
-            #
-            #     latest_content = "[" + rss_acticle_list[0]["title"] + (" 🌈 " + rss_acticle_list[0]["date"] if (
-            #             rss_acticle_list[0]["date"] == datetime.today().strftime("%Y-%m-%d")) else " \| " +
-            #                                                                                        rss_acticle_list[0][
-            #                                                                                            "date"]) + "](" + \
-            #                      rss_acticle_list[0]["link"] + ")"
-            #
-            # if len(rss_acticle_list) > 1:
-            #     rss_acticle_list[1]["title"] = rss_acticle_list[1]["title"].replace("|", "\|")
-            #     rss_acticle_list[1]["title"] = rss_acticle_list[1]["title"].replace("[", "\[")
-            #     rss_acticle_list[1]["title"] = rss_acticle_list[1]["title"].replace("]", "\]")
-            #
-            #     latest_content = latest_content + "<br/>[" + rss_acticle_list[1]["title"] + (
-            #         " 🌈 " + rss_acticle_list[0]["date"] if (
-            #                 rss_acticle_list[0]["date"] == datetime.today().strftime("%Y-%m-%d")) else " \| " +
-            #                                                                                            rss_acticle_list[
-            #                                                                                                0][
-            #                                                                                                "date"]) + "](" + \
-            #                      rss_acticle_list[1]["link"] + ")"
 
             # 生成after_info
             after_info = before_info.replace("{{latest_content}}", latest_content)

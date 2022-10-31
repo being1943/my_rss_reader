@@ -1,4 +1,5 @@
 # My Rss Reader,一个Rss日更工具，已收集{{rss_num}}个RSS源, 生成时间: {{ga_rss_datetime}}
+<a href='https://github.com/being1943/my_rss_reader'>项目地址</a>
 
 ## 主要功能
 
