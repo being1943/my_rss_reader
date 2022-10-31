@@ -1,5 +1,6 @@
 name: 推送更新
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 22 * * *'    # 国际标准时间22点（北京时间早上6点发）
   push:
